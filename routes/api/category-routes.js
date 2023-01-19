@@ -24,7 +24,9 @@ router.get('/:id', async (req, res) => {
       include: [{ model: Product }],
     })
     if (!categoryData) {
-      res.status(404).json({ message: 'Error: No Category found with this ID' })
+      res
+        .status(404)
+        .json({ message: 'Error: No category found with this id!' })
       return
     }
     res.status(200).json(categoryData)
@@ -50,8 +52,8 @@ router.put('/:id', async (req, res) => {
       id: req.params.id,
     },
   })
-    .then((category) => {
-      res.status(200).json(category)
+    .then((Category) => {
+      res.status(200).json(Category)
     })
     .catch((err) => {
       console.log(err)
@@ -61,15 +63,24 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
-  const categoryData = Category.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((categoryData) => res.status(200).json(categoryData))
-    .catch((err) => {
-      res.status(500).json(err)
+  try {
+    const categoryData = Category.destroy({
+      where: {
+        id: req.params.id,
+      },
     })
+
+    if (!categoryData) {
+      res
+        .status(404)
+        .json({ message: 'Error: No category found with this id!' })
+      return
+    }
+
+    res.status(200).json(categoryData)
+  } catch (err) {
+    res.status(500).json(err)
+  }
 })
 
 module.exports = router
