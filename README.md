@@ -17,6 +17,7 @@ This app is the back end for an e-commerce site. It's configured by a working Ex
 ## Table of Contents:
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [User Story](#user-story)
 - [Credits](#credits)
 - [License](#license)
@@ -26,6 +27,10 @@ This app is the back end for an e-commerce site. It's configured by a working Ex
 The following animation shows the application's GET routes to return all categories, all products, and all tags being tested in Insomnia. It also shows, the application's GET routes to return a single category, a single product, and a single tag. Then it demonstrates, the POST, PUT, and DELETE routes for categories.
 
 ![Insomnia app generate](./Assets/app.gif)
+
+## Usage
+
+[Walkthrough Video](https://drive.google.com/file/d/1N_97Pil1gK9wtCpuGe4__M6jvVDpWfrU/view?usp=share_link)
 
 ## User Story
 
